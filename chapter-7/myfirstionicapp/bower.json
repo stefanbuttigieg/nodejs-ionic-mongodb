@@ -1,0 +1,8 @@
+{
+  "name": "myfirstionicapp",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-rc.5",
+    "platform": "~1.3.0"
+  }
+}
