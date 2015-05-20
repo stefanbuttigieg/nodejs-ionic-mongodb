@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AboutCtrl', function($scope) {
-})    
+})
 
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
