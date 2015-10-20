@@ -1,0 +1,11 @@
+{
+  "name": "MongoNode",
+  "version": "0.0.0",
+  "description": "Simple project demonstrating how to interface with a MongoDB instance from Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yours Truly",
+  "license": "BSD"
+}

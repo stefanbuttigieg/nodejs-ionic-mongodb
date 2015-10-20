@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Socket.io chat application</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+</head>
+
+<body>
+
+<ul id="messages"></ul>
+
+<div class="container">
+
+    <div class="row">
+        <div id="chat-box" class="well">
+            <ul id="chat-view" class="list-unstyled"></ul>
+        </div>
+    </div>
+
+    <form action="">
+        <div class="row">
+            <input type="text"
+                   id="chat-name"
+                   class="form-control"
+                   placeholder="Your name">
+        </div>
+        <div class="row">
+            <input type="text"
+                   id="chat-message"
+                   class="form-control"
+                   placeholder="Enter message">
+            <button id="chat-submit"
+                    type="submit"
+                    class="btn btn-default">Send
+            </button>
+        </div>
+    </form>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+
+    var websocket = io('http://localhost:8080');
+
+    var appendChatMessage = function (sender, message) {
+        $('#chat-view').append($('<li>').text(sender + ': ' + message));
+    };
+
+    var clearChatField = function () {
+        $('#chat-message').text('');
+    };
+
+    // Notify the server when we send a new message
+    $('#chat-submit').click(function () {
+        var chatData = {
+            name: $('#chat-name').val(),
+            message: $('#chat-message').val()
+        };
+        appendChatMessage(chatData.name, chatData.message);
+        clearChatField();
+        websocket.emit('MessageSentEvent', chatData);
+        return false;
+    });
+
+    // Update the state of the chat when we receive a new chat message
+    websocket.on('MessageReceivedEvent', function (chatData) {
+        appendChatMessage(chatData.name, chatData.message);
+    });
+
+</script>
+
+</body>
+
+</html>

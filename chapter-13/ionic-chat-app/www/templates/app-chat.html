@@ -1,0 +1,25 @@
+<ion-view view-title="chat">
+    <ion-content>
+        <div class="list">
+            <a collection-repeat="message in messages"
+               class="item item-avatar"
+               ng-class="{'other-chatbox' : message.external}">
+                <h2>{{message.name}}</h2>
+
+                <p>{{message.text}}</p>
+            </a>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer bar-balanced">
+        <label class="item-input-wrapper">
+            <input id="message-input"
+                   type="text"
+                   placeholder="Message"
+                    ng-model="inputMessage">
+        </label>
+        <button class="button button-small"
+                ng-click="onSend()">
+            Submit
+        </button>
+    </div>
+</ion-view>

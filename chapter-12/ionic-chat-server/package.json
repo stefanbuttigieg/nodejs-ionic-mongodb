@@ -1,0 +1,11 @@
+{
+  "name": "ionic-chat-server",
+  "version": "1.0.0",
+  "description": "A websocket server for chatting.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "csvan",
+  "license": "MIT"
+}

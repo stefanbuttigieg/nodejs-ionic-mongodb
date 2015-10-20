@@ -1,0 +1,11 @@
+#message-input {
+    width: 100%;
+}
+
+.item-avatar {
+    padding-left: 16px;
+}
+
+.other-chatbox {
+    text-align: right;
+}
